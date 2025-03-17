@@ -1,0 +1,40 @@
+{
+    "name": "nuxt-template",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "nuxt dev",
+        "build": "nuxt build",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare",
+        "test": "vitest",
+        "report": "lighthouse --quiet --view true --chrome-flags=\"--headless\" http://localhost:3000/en"
+    },
+    "dependencies": {
+        "@nuxtjs/seo": "^3.0.0-beta.3",
+        "nuxt": "^3.16.0",
+        "vue": "^3.5.13",
+        "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+        "@nuxt/eslint": "^1.2.0",
+        "@nuxt/image": "^1.9.0",
+        "@nuxt/test-utils": "^3.17.2",
+        "@nuxtjs/i18n": "^9.3.1",
+        "@nuxtjs/tailwindcss": "^6.13.2",
+        "eslint": "^9.22.0",
+        "eslint-config-prettier": "^10.1.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "prettier": "^3.5.3",
+        "vitest": "^3.0.8"
+    },
+    "prettier": {
+        "bracketSpacing": true,
+        "printWidth": 80,
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 4,
+        "trailingComma": "none"
+    }
+}

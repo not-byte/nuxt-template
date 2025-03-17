@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Chakra Petch";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 400;
+        src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-regular.woff2")
+            format("woff2");
+    }
+
+    @font-face {
+        font-family: "Chakra Petch";
+        font-style: normal;
+        font-display: swap;
+        font-weight: 700;
+        src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-700.woff2")
+            format("woff2");
+    }
+
+    html {
+        @apply bg-dark;
+        @apply bg-tile bg-repeat bg-auto bg-blend-overlay;
+    }
+
+    body {
+        @apply w-dvw min-h-dvh max-h-fit;
+        @apply bg-gradient bg-cover bg-center;
+        @apply font-display text-white select-none;
+        @apply flex flex-col;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-bold tracking-wide;
+    }
+
+    h1 {
+        @apply text-xxl;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+
+    h3 {
+        @apply text-lg;
+    }
+}
