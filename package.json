@@ -12,7 +12,7 @@
         "report": "lighthouse --quiet --view true --chrome-flags=\"--headless\" http://localhost:3000/en"
     },
     "dependencies": {
-        "@nuxtjs/seo": "^3.0.0-beta.3",
+        "@nuxtjs/seo": "^3.0.1",
         "nuxt": "^3.16.0",
         "vue": "^3.5.13",
         "vue-router": "^4.5.0"
