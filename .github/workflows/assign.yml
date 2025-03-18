@@ -10,7 +10,7 @@ jobs:
             pull-requests: write
         steps:
             - name: Assign an issue for user
-              uses: pozil/auto-assign-issue@v1
+              uses: pozil/auto-assign-issue@v2
               with:
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
                   assignees: ${{ github.actor }}
