@@ -3,7 +3,7 @@ name: Publish Docker image
 on:
   push:
     branches:
-      - main
+      - test/amd64
 
 jobs:
   publish:
@@ -27,8 +27,9 @@ jobs:
         uses: reecetech/version-increment@2024.10.1
         id: version
         with:
-          scheme: semver
+          scheme: conventional_commits
           increment: patch
+          use_api: true
 
       - name: Add tags and labels
         id: meta
@@ -39,19 +40,19 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
         with:
-          platforms: amd64,arm64
+          platforms: amd64
 
       - name: Set up Docker Build
         uses: docker/setup-buildx-action@v3
         with:
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
 
       - name: Push Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./src
           file: ./src/Dockerfile
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           push: true
           tags: "ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}"
           labels: ${{ steps.meta.outputs.labels }}
