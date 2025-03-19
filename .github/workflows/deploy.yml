@@ -1,8 +1,9 @@
 name: Publish Docker image
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
@@ -21,6 +22,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get next version
+        uses: reecetech/version-increment@2024.10.1
+        id: version
+        with:
+          scheme: semver
+          increment: patch
 
       - name: Add tags and labels
         id: meta
@@ -41,5 +49,5 @@ jobs:
           file: ./src/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: "ghcr.io/${{ github.repository }}:latest"
+          tags: "ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}"
           labels: ${{ steps.meta.outputs.labels }}
