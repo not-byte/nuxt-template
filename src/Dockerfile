@@ -16,15 +16,15 @@ RUN npm run build
 
 FROM alpine AS runner
 
-ENV NODE_ENV="production"
+WORKDIR /app
 
 LABEL authors="botprzemek"
 
 RUN apk add --update nodejs
 
-WORKDIR /app
-
 COPY --from=builder --chown=node:node /app/.output ./.output
+
+ENV NODE_ENV="production"
 
 CMD ["node", ".output/server/index.mjs"]
 
