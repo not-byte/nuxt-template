@@ -6,13 +6,12 @@ const page = useRoute().name?.toString().split("___")[0];
 const title = () => {
     const title = t(`pages.${page}.title`);
 
-    console.log(page);
-
     return title ? `${title} · ${name}` : `${name}`;
 };
 const description = () => t(`pages.${page}.description`);
 
 useSeoMeta({
+    robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
     ogUrl: url,
     ogSiteName: name,
     title,
@@ -29,7 +28,7 @@ useSeoMeta({
 </script>
 
 <template>
-    <NavigationSection />
-    <slot />
-    <FooterSection />
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
