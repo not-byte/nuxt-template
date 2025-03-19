@@ -23,7 +23,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get next version
+      - name: Increment version
         uses: reecetech/version-increment@2024.10.1
         id: version
         with:
