@@ -110,7 +110,7 @@ export default defineNuxtConfig({
         teleportTag: "aside"
     },
     robots: {
-        disallow: ["/about-us"]
+        allow: ["/"]
     },
     i18n: {
         baseUrl: process.env.NUXT_PUBLIC_URL || "http://localhost:3000/",

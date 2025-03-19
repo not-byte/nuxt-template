@@ -11,7 +11,13 @@
                     <br />
                 </template>
                 <template v-slot:link>
-                    <NuxtLink>
+                    <NuxtLink
+                        :title="$t(`pages.index.content.link`)"
+                        to="https://nuxt.com/"
+                        target="_blank"
+                        external
+                        no-rel
+                    >
                         <span
                             class="bg-text bg-cover bg-clip-text text-transparent"
                         >
