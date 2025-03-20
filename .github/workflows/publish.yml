@@ -43,6 +43,7 @@ jobs:
           RELEASE_BRANCHES: main
 
       - name: Create a GitHub release
+        id: release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.version.outputs.new_tag }}
