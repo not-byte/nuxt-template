@@ -1,12 +1,18 @@
 name: Automatically assign user that opened the issue or pull requested from repository
 on:
   issues:
-    types: [opened]
+    types:
+      - opened
   pull_request:
-    types: [opened, reopened]
+    types:
+      - opened
+      - reopened
+    branches:
+      - main
 
 jobs:
-  run:
+  assign:
+    name: Assign user
     runs-on: ubuntu-latest
     permissions:
       issues: write
