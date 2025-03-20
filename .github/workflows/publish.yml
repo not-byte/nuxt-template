@@ -77,4 +77,3 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ steps.version.outputs.new_tag }}
-          labels: ${{ steps.meta.outputs.labels }}
