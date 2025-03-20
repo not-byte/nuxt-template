@@ -1,22 +1,29 @@
 name: Build and publish Docker image
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
       - main
 
+concurrency: production
+
 jobs:
   publish:
-    name: Publish Docker image to GitHub Packages
+    name: Build and publish Docker image to GitHub Packages
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
     steps:
-      - name: Checkout
+      - name: Checkout repository
+        id: checkout
         uses: actions/checkout@v4
 
       - name: Auth GitHub
+        id: auth
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -24,8 +31,8 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Increment version
-        uses: reecetech/version-increment@2024.10.1
         id: version
+        uses: reecetech/version-increment@2024.10.1
         with:
           scheme: conventional_commits
           increment: patch
@@ -41,16 +48,25 @@ jobs:
           flavor: latest=auto
 
       - name: Set up QEMU
+        id: qemu
         uses: docker/setup-qemu-action@v3
         with:
           platforms: amd64,arm64
 
       - name: Set up Docker Build
+        id: build
         uses: docker/setup-buildx-action@v3
         with:
           platforms: linux/amd64,linux/arm64
 
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.71.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
       - name: Push Docker image
+        id: push
         uses: docker/build-push-action@v5
         with:
           context: ./src
@@ -59,8 +75,3 @@ jobs:
           push: true
           tags: "ghcr.io/${{ github.repository }}:${{ steps.version.outputs.version }}"
           labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Removed untagged artifacts
-        uses: minish144/delete-untagged-action@v2
-        with:
-          github-token: ${{ secrets.DELETE_PACKAGES_TOKEN }}
