@@ -12,7 +12,7 @@ COPY --chown=node:node . .
 
 RUN npm run build
 
-# Create a clean environment
+# Run output in a clean environment
 
 FROM alpine AS runner
 
