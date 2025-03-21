@@ -21,9 +21,9 @@ useSeoMeta({
     description: description,
     ogDescription: description,
     twitterDescription: description,
+    twitterCard: "summary",
     ogImage: "[og:image]",
-    twitterImage: "[twitter:image]",
-    twitterCard: "summary"
+    twitterImage: "[twitter:image]"
 });
 </script>
 

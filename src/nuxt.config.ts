@@ -75,14 +75,12 @@ export default defineNuxtConfig({
         }
     },
     modules: [
-        "@nuxtjs/robots",
-        "@nuxtjs/sitemap",
-        "@nuxtjs/seo",
-        "@nuxtjs/i18n",
-        "@nuxtjs/tailwindcss",
         "@nuxt/eslint",
+        "@nuxt/image",
         "@nuxt/test-utils",
-        "@nuxt/image"
+        "@nuxtjs/i18n",
+        "@nuxtjs/seo",
+        "@nuxtjs/tailwindcss"
     ],
     runtimeConfig: {
         public: {
@@ -110,7 +108,10 @@ export default defineNuxtConfig({
         teleportTag: "aside"
     },
     robots: {
-        allow: ["/"]
+        credits: false
+    },
+    site: {
+        indexable: true
     },
     i18n: {
         baseUrl: process.env.NUXT_PUBLIC_URL || "http://localhost:3000/",

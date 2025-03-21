@@ -16,7 +16,7 @@ export default {
     },
     pages: {
         index: {
-            title: "NuxtJS template",
+            title: "Template",
             description:
                 "Discover our template for NuxtJS - an open source framework that makes web development intuitive and powerful. Create performant and production-grade full-stack web apps and websites with confidence.",
             content: {

@@ -16,7 +16,7 @@ export default {
     },
     pages: {
         index: {
-            title: "Szablon NuxtJS",
+            title: "Szablon",
             description:
                 "Poznaj nasz szablon dla NuxtJS - open-sourcowego frameworka, którzy pozwala na intulicyjne tworzenie full-stack aplikacji webowych, wydajnych i gotowych na produkcję.",
             content: {
