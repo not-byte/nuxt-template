@@ -1,6 +1,7 @@
 name: Build and publish Docker image
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - closed
@@ -78,5 +79,7 @@ jobs:
           file: ./src/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ steps.version.outputs.new_tag }}
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ steps.version.outputs.new_tag }}
+            ghcr.io/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}

@@ -9,6 +9,7 @@
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "test": "vitest",
+        "deploy": "docker run -d -p 0.0.0.0:3000:3000 ghcr.io/not-byte/nuxt-template",
         "report": "lighthouse --quiet --view true --chrome-flags=\"--headless\" http://localhost:3000/en"
     },
     "devDependencies": {
