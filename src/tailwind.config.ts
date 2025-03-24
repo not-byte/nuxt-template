@@ -18,14 +18,14 @@ export default {
             sm: "0.85rem"
         },
         backgroundImage: {
-            text: "url('~/assets/images/text.webp')",
+            text: "linear-gradient(125deg, hsla(0, 85%, 64%, 1) 20%, hsla(281, 58%, 55%, 1) 50%, hsla(0, 85%, 64%, 1) 67%, hsla(14, 86%, 67%, 1) 100%)",
             gradient: "url('~/assets/images/gradient.webp')",
             tile: "url('~/assets/images/tile.webp')"
         },
         extend: {
             colors: {
-                dark: "hsla(228, 14%, 7%, 100%)",
-                gray: "hsla(239, 26%, 89%, 100%)"
+                dark: "hsla(228, 14%, 7%, 1)",
+                gray: "hsla(239, 26%, 89%, 1)"
             }
         }
     },

@@ -1,17 +1,31 @@
 <script setup lang="ts">
-const { name, url } = useRuntimeConfig().public;
-const { t } = useI18n({ useScope: "global" });
-const page = useRoute().name?.toString().split("___")[0];
+const { description, image, link, name, robots, title, url } = useSiteData();
 
-const title = () => {
-    const title = t(`pages.${page}.title`);
+// TODO
+// Fix rendering of component
+// defineOgImageComponent("Default", {
+//     cacheMaxAgeSeconds: 0
+// });
 
-    return title ? `${title} · ${name}` : `${name}`;
-};
-const description = () => t(`pages.${page}.description`);
+useHeadSafe({
+    link,
+    charset: "utf-8",
+    viewport: "width=device-width, initial-scale=1",
+    meta: [
+        {
+            name: "theme-color",
+            content: "currentColor"
+        },
+        {
+            // @ts-ignore
+            "http-equiv": "X-UA-Compatible",
+            content: "IE=edge,chrome=1"
+        }
+    ]
+});
 
 useSeoMeta({
-    robots: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    author: name,
     ogUrl: url,
     ogSiteName: name,
     title,
@@ -21,9 +35,10 @@ useSeoMeta({
     description: description,
     ogDescription: description,
     twitterDescription: description,
-    ogImage: "[og:image]",
-    twitterImage: "[twitter:image]",
-    twitterCard: "summary"
+    ogImage: image(),
+    twitterImage: image(),
+    twitterCard: "summary",
+    robots: robots()
 });
 </script>
 
