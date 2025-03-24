@@ -1,5 +1,12 @@
 # Nuxt Template
 
+TODO
+
+og:locale
+lang
+
+title change on route change
+
 NuxtJS is an open source framework that makes web development intuitive and powerful.
 Create performant and production-grade full-stack web apps and websites with confidence.
 Template written in [TypeScript](https://typescriptlang.org/), [Nuxt](https://nuxt.com/)

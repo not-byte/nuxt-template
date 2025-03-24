@@ -1,6 +1,6 @@
 <template>
     <nav class="w-full grid place-content-center">
         <NavigationRouting />
-        <LangSwitcher />
+        <LanguageSwitcher />
     </nav>
 </template>
