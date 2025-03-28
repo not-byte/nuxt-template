@@ -2,10 +2,7 @@
 const { description, image, link, name, robots, title, url } = useSiteData();
 
 // TODO
-// Fix rendering of component
-// defineOgImageComponent("Default", {
-//     cacheMaxAgeSeconds: 0
-// });
+// defineOgImage();
 
 useHeadSafe({
     link,

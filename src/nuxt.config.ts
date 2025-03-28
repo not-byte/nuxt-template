@@ -33,18 +33,37 @@ export default defineNuxtConfig({
         },
         teleportTag: "aside"
     },
-    robots: {
-        allow: ["/"]
-    },
     ogImage: {
         defaults: {
-            cacheMaxAgeSeconds: 60 * 60 * 24 * 7
-        }
+            cacheMaxAgeSeconds: 60 * 60 * 24 * 7,
+            fonts: ["Chakra Petch:400", "Chakra Petch:700"],
+            component: "Default"
+        },
+        fonts: [
+            {
+                name: "Chakra Petch",
+                weight: 400,
+                path: "/fonts/chakra-petch-v11-latin_latin-ext-regular.woff"
+            },
+            {
+                name: "Chakra Petch",
+                weight: 700,
+                path: "/fonts/chakra-petch-v11-latin_latin-ext-700.woff"
+            }
+        ]
     },
     i18n: {
-        baseUrl: process.env.NUXT_PUBLIC_URL || "http://localhost:3000/",
-        strategy: "prefix_and_default",
+        baseUrl: process.env.NUXT_PUBLIC_URL,
+        bundle: {
+            optimizeTranslationDirective: false
+        },
+        customRoutes: "page",
         defaultLocale: "en",
+        detectBrowserLanguage: {
+            useCookie: true,
+            cookieKey: "notbyte-lang",
+            redirectOn: "root"
+        },
         locales: [
             {
                 code: "en",
@@ -59,11 +78,6 @@ export default defineNuxtConfig({
                 file: "pl-PL.ts"
             }
         ],
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: "notbyte-lang",
-            redirectOn: "root"
-        },
-        customRoutes: "page"
+        strategy: "prefix_and_default"
     }
 });

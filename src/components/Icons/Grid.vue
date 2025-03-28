@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import Docker from "@/components/icon/Docker.vue";
-import Nuxt from "@/components/icon/Nuxt.vue";
-import TailwindCSS from "@/components/icon/TailwindCSS.vue";
-import TypeScript from "@/components/icon/TypeScript.vue";
+import Docker from "@/components/Icon/Docker.vue";
+import Nuxt from "@/components/Icon/Nuxt.vue";
+import TailwindCSS from "@/components/Icon/TailwindCSS.vue";
+import TypeScript from "@/components/Icon/TypeScript.vue";
 
 const icons = new Array<{ name: string; component: Component; link: URL }>(
     {
-        name: "typescript",
+        name: "TypeScript",
         component: TypeScript,
         link: new URL("https://www.typescriptlang.org/")
     },
     {
-        name: "nuxt",
+        name: "Nuxt",
         component: Nuxt,
         link: new URL("https://nuxt.com/")
     },
     {
-        name: "tailwindcss",
+        name: "TailwindCSS",
         component: TailwindCSS,
         link: new URL("https://tailwindcss.com/")
     },
     {
-        name: "docker",
+        name: "Docker",
         component: Docker,
         link: new URL("https://www.docker.com/")
     }
@@ -32,7 +32,7 @@ const icons = new Array<{ name: string; component: Component; link: URL }>(
     <ul class="grid grid-flow-col place-content-center gap-4 px-1 py-1">
         <li v-for="{ name, link, component } in icons" :key="name">
             <NuxtLink
-                :title="$t(`components.icons.${name}`)"
+                :title="$t(`components.icons.${name.toLowerCase()}`)"
                 :to="link"
                 target="_blank"
                 external
