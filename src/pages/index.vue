@@ -19,7 +19,7 @@
                         no-rel
                     >
                         <span
-                            class="bg-text bg-cover bg-clip-text text-transparent"
+                            class="bg-text from-crimson from-20% via-velvet via-50% to-sunny to-90% bg-cover bg-clip-text text-transparent"
                         >
                             {{ $t(`pages.index.content.link`) }}
                         </span>

@@ -17,15 +17,18 @@ export default {
             md: "1rem",
             sm: "0.85rem"
         },
-        backgroundImage: {
-            text: "linear-gradient(125deg, hsla(0, 85%, 64%, 1) 20%, hsla(281, 58%, 55%, 1) 50%, hsla(0, 85%, 64%, 1) 67%, hsla(14, 86%, 67%, 1) 100%)",
-            gradient: "url('~/assets/images/gradient.webp')",
-            tile: "url('~/assets/images/tile.webp')"
-        },
         extend: {
+            backgroundImage: {
+                text: "linear-gradient(125deg, var(--tw-gradient-stops))",
+                gradient: "url('/images/gradient.webp')",
+                tile: "url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAABlBMVEVHcEz///+flKJDAAAAAnRSTlMAgJsrThgAAAAWSURBVAjXY2BgYOBhGCTE/////4AJAI9hCUMKPL8IAAAAAElFTkSuQmCC')"
+            },
             colors: {
-                dark: "hsla(228, 14%, 7%, 1)",
-                gray: "hsla(239, 26%, 89%, 1)"
+                dark: "rgb(15, 15, 20)",
+                gray: "rgb(219, 219, 235)",
+                crimson: "rgb(241, 86, 86)",
+                velvet: "rgb(163, 73, 206)",
+                sunny: "rgb(243, 132, 97)"
             }
         }
     },

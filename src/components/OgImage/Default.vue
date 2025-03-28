@@ -2,52 +2,34 @@
 const props = withDefaults(
     defineProps<{ title?: string; description?: string }>(),
     {
-        title: "nuxt-template",
+        title: "title",
         description: "description"
     }
 );
 
-const title = computed(() => (props.title || "").slice(0, 60));
-const description = computed(() => (props.description || "").slice(0, 150));
+const title = computed(() => (props.title || "").split(" · ")[0].slice(0, 60));
+const description = computed(() => (props.description || "").slice(0, 210));
 </script>
 
-<style scoped>
-@font-face {
-    font-family: "Chakra Petch";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 400;
-    src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-regular.woff2")
-        format("woff2");
-}
-
-@font-face {
-    font-family: "Chakra Petch";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 700;
-    src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-700.woff2")
-        format("woff2");
+<style scoped lang="css">
+.test {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQMAAAAB/jzhAAAABlBMVEVHcEz///+flKJDAAAAAnRSTlMAgJsrThgAAAAWSURBVAjXY2BgYOBhGCTE/////4AJAI9hCUMKPL8IAAAAAElFTkSuQmCC);
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    background-size: 61px 61px;
 }
 </style>
 
 <template>
-    <aside
-        style="font-family: Chakra Petch"
-        class="bg-dark bg-tile bg-repeat bg-auto bg-blend-overlay"
-    >
+    <aside class="w-full h-full bg-[#0f1014] test">
         <section
-            class="w-[640px] h-[360px] p-[40px] bg-gradient bg-cover bg-center font-display flex flex-col justify-end"
+            class="w-full h-full flex flex-col justify-end p-[4rem] bg-cover bg-center text-white"
         >
-            <img width="300px" src="/assets/images/og-image.png" />
-            <h1 v-if="title" class="text-[70px] font-semibold">
-                <span class="bg-text bg-cover bg-clip-text text-transparent">
-                    {{ title }}
-                </span>
+            <h1 v-if="title" class="text-[8rem] -mb-4 font-semibold">
+                {{ title }}
             </h1>
-            <p v-if="description" class="text-[20px] text-white">
-                created by notbyte team
-                <!-- {{ description }} -->
+            <p v-if="description" class="text-[2rem] -mb-4">
+                {{ description }}
             </p>
         </section>
     </aside>

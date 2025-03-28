@@ -8,7 +8,7 @@
         font-style: normal;
         font-display: swap;
         font-weight: 400;
-        src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-regular.woff2")
+        src: url("/fonts/chakra-petch-v11-latin_latin-ext-regular.woff2")
             format("woff2");
     }
 
@@ -17,13 +17,13 @@
         font-style: normal;
         font-display: swap;
         font-weight: 700;
-        src: url("~/assets/fonts/chakra-petch-v11-latin_latin-ext-700.woff2")
+        src: url("/fonts/chakra-petch-v11-latin_latin-ext-700.woff2")
             format("woff2");
     }
 
     html {
         @apply bg-dark;
-        @apply bg-tile bg-repeat bg-auto bg-blend-overlay;
+        @apply bg-tile bg-repeat bg-[length:2rem] bg-blend-overlay;
     }
 
     body {
