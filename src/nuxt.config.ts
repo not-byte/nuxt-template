@@ -17,13 +17,11 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             name: "notbyte",
-            url: "https://nuxt.notbyte.com/",
-            prefix: "/"
+            url: "https://nuxt.notbyte.com/"
         }
     },
     app: {
-        baseURL: process.env.NUXT_PUBLIC_PREFIX || "/",
-        buildAssetsDir: "/",
+        baseURL: process.env.NUXT_PUBLIC_URL,
         rootAttrs: {
             id: "notbyte-root"
         },
