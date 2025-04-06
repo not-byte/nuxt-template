@@ -9,7 +9,7 @@
             no-rel
         >
             <IconGitHub class="w-5 h-5 fill-dark z-10" />
-            <span class="text-dark text-sm z-10">
+            <span class="text-dark text-sm z-10 mt-[0.15rem]">
                 {{ $t(`components.footer.github`) }}
             </span>
         </NuxtLink>
