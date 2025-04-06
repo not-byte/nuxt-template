@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
+    // srcDir: "src/",
     devtools: {
         enabled: true,
         timeline: {
@@ -11,7 +12,7 @@ export default defineNuxtConfig({
         "@nuxtjs/i18n",
         "@nuxtjs/tailwindcss",
         "@nuxt/eslint",
-        "@nuxt/test-utils",
+        "@nuxt/test-utils/module",
         "@nuxt/image"
     ],
     runtimeConfig: {

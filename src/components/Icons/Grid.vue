@@ -4,7 +4,7 @@ import Nuxt from "@/components/Icon/Nuxt.vue";
 import TailwindCSS from "@/components/Icon/TailwindCSS.vue";
 import TypeScript from "@/components/Icon/TypeScript.vue";
 
-const icons = new Array<{ name: string; component: Component; link: URL }>(
+const icons = [
     {
         name: "TypeScript",
         component: TypeScript,
@@ -25,7 +25,7 @@ const icons = new Array<{ name: string; component: Component; link: URL }>(
         component: Docker,
         link: new URL("https://www.docker.com/")
     }
-);
+] satisfies Icons;
 </script>
 
 <template>
